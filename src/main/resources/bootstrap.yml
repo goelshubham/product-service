@@ -1,0 +1,35 @@
+spring:
+  cloud:
+    config:
+     uri: http://localhost:8001
+     failFast: true
+     name: product-service
+---
+spring:
+  profiles: dev
+---
+spring:
+  profiles:
+    active: dev
+---
+legacy:
+  context:
+    enabled: true
+management:
+  endpoint:
+    env:
+      enabled: true 
+    health:
+      enabled: true
+    info:
+      enabled: true
+    threaddump:
+      enabled: true
+    refresh:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: env, bus-refresh
+       
+       
